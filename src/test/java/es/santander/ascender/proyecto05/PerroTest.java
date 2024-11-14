@@ -1,4 +1,4 @@
-package es.santander.ascender;
+package es.santander.ascender.proyecto05;
 
 import org.junit.jupiter.api.Test;
 
