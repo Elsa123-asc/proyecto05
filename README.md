@@ -1,1 +1,3 @@
-# proyecto05
+target/
+.vscode/
+.mvn/
