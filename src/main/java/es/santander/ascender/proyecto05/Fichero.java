@@ -1,4 +1,4 @@
-package es.santander.ascender.proyecto05;
+package es.santander.ascender.proyecto06;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -15,32 +15,41 @@ public abstract class Fichero implements Closeable {
     public byte[] leer(String nombreFichero) throws IOException {
         int valor;
 
-        FileInputStream fis = new FileInputStream(nombreFichero);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        while ((valor = fis.read()) != -1) {
-            baos.write(valor);
-        }
-
-        return baos.toByteArray();
+        byte[] resultado;
+        
+        try (FileInputStream fis = new FileInputStream(nombreFichero); 
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();) 
+        {
+            while ((valor = fis.read()) != -1) {
+                baos.write(valor);
+            }
+            resultado = baos.toByteArray();
+        } 
+        return resultado;
     }
 
     public byte[] leerEnBloques(String nombreFichero) throws IOException {
         int cuantos;
         byte[] valores = new byte[4096];
 
-        FileInputStream fis = new FileInputStream(nombreFichero);
-        ByteArrayOutputStream baos = new ByteArrayOutputStream();
-        while ((cuantos = fis.read(valores)) != -1) {
-            baos.write(valores, 0, cuantos);
+        byte[] resultado;
+
+        try (FileInputStream fis = new FileInputStream(nombreFichero); 
+            ByteArrayOutputStream baos = new ByteArrayOutputStream();) 
+        {
+            while ((cuantos = fis.read(valores)) != -1) {
+                baos.write(valores, 0, cuantos);
+            }
+            resultado = baos.toByteArray();
         }
 
-        return baos.toByteArray();
+        return resultado;
     }
 
     public void escribir(String nombreFichero, byte[] datos) throws IOException {
-        FileOutputStream fos = new FileOutputStream(nombreFichero);
-
-        fos.write(datos);
+        try (FileOutputStream fos = new FileOutputStream(nombreFichero);) {
+            fos.write(datos);
+        }
     }
 
     @Override
@@ -50,5 +59,4 @@ public abstract class Fichero implements Closeable {
     }
 
     public abstract void hacerElLunes();
-
 }
