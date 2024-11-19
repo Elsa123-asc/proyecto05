@@ -1,4 +1,4 @@
-package es.santander.ascender.proyecto06;
+packages.santander.ascender.proyecto05;
 
 import java.io.ByteArrayOutputStream;
 import java.io.Closeable;
@@ -58,5 +58,6 @@ public abstract class Fichero implements Closeable {
         throw new UnsupportedOperationException("Unimplemented method 'close'");
     }
 
-    public abstract void ();
+    public abstract void hacerElLunes();
+
 }

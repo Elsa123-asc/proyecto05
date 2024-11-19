@@ -1,4 +1,4 @@
-package es.santander.ascender.proyecto05;
+packages.santander.ascender.proyecto05;
 
 public class Calculadora {
 

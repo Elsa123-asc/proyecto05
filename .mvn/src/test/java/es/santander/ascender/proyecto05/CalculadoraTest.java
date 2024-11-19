@@ -6,7 +6,7 @@ import org.junit.jupiter.api.Test;
 
 public class CalculadoraTest {
 
-    private Calculadora calculadora;
+    public Calculadora calculadora;
 
     @BeforeEach
     public void setUp() {
@@ -70,5 +70,5 @@ public class CalculadoraTest {
         // Verificar que el método obtenerUltimoResultado() funciona correctamente
         calculadora.sumar(7, 3);  // Resultado esperado: 10, pero la clase suma 1, por lo que el resultado es 11
         assertEquals(11, calculadora.obtenerUltimoResultado(), "El último resultado debe ser 11.");
-    }
-}
+        }
+ }  
