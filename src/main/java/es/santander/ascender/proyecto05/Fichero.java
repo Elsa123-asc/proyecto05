@@ -58,5 +58,5 @@ public abstract class Fichero implements Closeable {
         throw new UnsupportedOperationException("Unimplemented method 'close'");
     }
 
-    public abstract void hacerElLunes();
+    public abstract void ();
 }

@@ -1,16 +1,23 @@
-package es.santander.ascender.proyecto05;
+package es.santander.ascender.proyecto06;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
+public class Perro {
 
-import org.junit.jupiter.api.Test;
-
-public class PerroTest {
-    @Test
-    void testComer() {
-        Perro perro = new Perro(45.5);
-
-        perro.comer(34.2);
-
-        assertEquals(79.7, perro.getPeso(), 0.000001);
+    private double peso;
+ 
+    public Perro(double peso) {
+        // Que pasa en peso 0 o negativo
+        this.peso = peso;
     }
+
+    public void comer(double pesoComida) {
+        this.peso += pesoComida;
+    }
+
+    public double getPeso() {
+        return peso;
+    }
+
+    public void setPeso(double peso) {
+        this.peso = peso;
+    }    
 }
